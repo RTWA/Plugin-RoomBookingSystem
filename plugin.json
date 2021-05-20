@@ -1,0 +1,7 @@
+{
+    "name": "Room Booking System",
+    "slug": "RoomBookingSystem",
+    "icon": "[\"fas\", \"door-open\"]",
+    "version": "1.0.0",
+    "author": "WebApps"
+}
