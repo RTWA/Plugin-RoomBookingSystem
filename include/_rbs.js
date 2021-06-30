@@ -75,15 +75,6 @@ function changeDate() {
         updateIFrame();
     }
 
-    // if ($("#rbs-block").length) {
-    //     // date = $('.datepicker').datepicker({ dateFormat: 'dd/mm/yy' }).val();
-    //     url = document.getElementsById('rbs-block').getAttribute('href');
-    //     // url = $('#rbs-block').attr('href');
-
-    //     $('#rbs-block').attr('href', url + '&date=' + date);
-    // }
-};
-
 // Show an element
 function show(elem) {
     elem.style.display = 'block';
@@ -93,16 +84,3 @@ function show(elem) {
 function hide(elem) {
     elem.style.display = 'none';
 };
-
-
-
-
-
-
-
-
-
-
-
-//         $('#room').unbind("change");
-//     }
