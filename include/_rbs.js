@@ -74,6 +74,7 @@ function changeDate() {
     if (dateData != '') {
         updateIFrame();
     }
+}
 
 // Show an element
 function show(elem) {

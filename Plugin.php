@@ -26,7 +26,7 @@ class RoomBookingSystem_Plugin extends Plugin
         $this->RBS_URL = ApplicationSettings::get('plugin.RoomBookingSystem.url');
         $this->preview['rooms']['each'] = '<iframe name="iframe" id="calFrame{index-1}" width="100%" height="990" 
                                                 frameborder="0" scrolling="yes" class="calFrame"
-                                                src="'.$this->RBS_URL.'/digitalsignage?code={value.code}&resourceId={value.resourceID}&date='.date('d/M/Y').'"></iframe>';
+                                                src="' . $this->RBS_URL . '/digitalsignage?code={value.code}&resourceId={value.resourceID}&date=' . date('d/M/Y') . '"></iframe>';
 
         if ($this->RBS_URL === '' || $this->RBS_URL === null) {
             $this->preview['rooms']['each'] = '<div class="px-4 py-3 leading-normal border border-red-700 text-red-700 bg-red-100 rounded-lg"><strong>ERROR:</strong> Room Booking System URL is not set. Please contact your System Administrator.</div>';
@@ -69,19 +69,16 @@ class RoomBookingSystem_Plugin extends Plugin
         'rooms' => [
             'each' => '',
         ],
-        'repeater' => "$('.calFrame').hide(); $('#calFrame'+repeater).show();",
-        'blockPreview' => '',
+        'repeater' => "var frames = document.getElementsByClassName('calFrame');
+                        var i;
+                        for (i=0;i<frames.length;i++) {
+                            frames[i].classList.add('hidden');
+                        }
+                        var frame = document.getElementById('calFrame'+repeater);
+                        if (frame) {
+                            frame.classList.remove('hidden');
+                        }",
     ];
-
-    public function prepare($data)
-    {
-        parent::prepare($data);
-
-        $this->preview['blockPreview'] = "$('#".$this->publicId." .col-6').hide(); $('#".$this->publicId." #calFrame').attr('src', '".$this->RBS_URL."/digitalsignage?code=".$this->settings['rooms'][0]['code']."&resourceId=".$this->settings['rooms'][0]['resourceID']."&date=".date('d/M/Y')."');"
-                                        ."$('#block-preview .RoomBookingSystem .col-6').hide();$('#block-preview .RoomBookingSystem #calFrame').attr('src', '".$this->RBS_URL."/digitalsignage?code=".$this->settings['rooms'][0]['code']."&resourceId=".$this->settings['rooms'][0]['resourceID']."&date=".date('d/M/Y')."');";
-
-        return $this;
-    }
 
     public function output($edit = false)
     {
@@ -95,7 +92,7 @@ class RoomBookingSystem_Plugin extends Plugin
 
     public function style()
     {
-        return file_get_contents(__DIR__.'/include/_style.css');
+        return file_get_contents(__DIR__ . '/include/_style.css');
     }
 
     public function scripts($edit = false)
@@ -103,7 +100,7 @@ class RoomBookingSystem_Plugin extends Plugin
         if ($edit) {
             return '';
         } else {
-            return file_get_contents(__DIR__.'/include/_rbs.js');
+            return file_get_contents(__DIR__ . '/include/_rbs.js');
         }
     }
 }

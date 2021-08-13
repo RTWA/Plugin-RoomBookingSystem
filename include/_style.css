@@ -9,6 +9,7 @@ body.view {
     width: 300px;
 }
 
+#block-preview .RoomBookingSystem,
 .preview .RoomBookingSystem {
     max-height: 300px;
 }

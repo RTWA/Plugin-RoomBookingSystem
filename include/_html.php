@@ -1,7 +1,7 @@
 <div class="RoomBookingSystem">
     <input type="hidden" id="RBS-URL" value="<?php echo $this->RBS_URL; ?>"/>
 
-    <?php if ($this->RBS_URL == "") : ?>
+    <?php if ($this->RBS_URL == "" || $this->RBS_URL === null) : ?>
 
         <div class="px-4 py-3 leading-normal border border-red-700 text-red-700 bg-red-100 rounded-lg">
             <strong>Error:</strong> Room Booking System URL has not been set. Please contact your system administrator.
