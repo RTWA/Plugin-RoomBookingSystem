@@ -12,6 +12,8 @@ class RoomBookingSystem_Plugin extends Plugin
     public $version;
     public $author;
 
+    public $theme;
+
     public $RBS_URL;
 
     public function __construct(array $attributes = [])
@@ -22,6 +24,8 @@ class RoomBookingSystem_Plugin extends Plugin
         $this->icon = $plugin['icon'];
         $this->version = $plugin['version'];
         $this->author = $plugin['author'];
+
+        $this->theme = ApplicationSettings::get('core.ui.theme');
 
         $this->RBS_URL = ApplicationSettings::get('plugin.RoomBookingSystem.url');
         $this->preview['rooms']['each'] = '<iframe name="iframe" id="calFrame{index-1}" width="100%" height="990" 

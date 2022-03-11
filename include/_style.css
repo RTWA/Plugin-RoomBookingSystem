@@ -5,8 +5,13 @@ body.view {
 }
 
 /* Room Booking System Plugin */
-.preview .RoomBookingSystem .col-6 {
-    width: 300px;
+.preview .RoomBookingSystem,
+#block-preview .RoomBookingSystem {
+    display: none !important;
+}
+
+.embed .RoomBookingSystem-Preview {
+    display: none !important;
 }
 
 #block-preview .RoomBookingSystem,
